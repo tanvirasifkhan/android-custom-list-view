@@ -3,7 +3,10 @@ package com.example.asifkhan.customlistview.activities;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.asifkhan.customlistview.R;
 import com.example.asifkhan.customlistview.adapters.CustomListAdapter;
@@ -47,6 +50,12 @@ public class MainActivity extends AppCompatActivity {
         customListAdapter=new CustomListAdapter(userInfos,this);
         customListView.setAdapter(customListAdapter);
         getDatas();
+        customListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(MainActivity.this, "Name : " + names[i] + "\n Profession : " + professions[i], Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     // getting all the datas

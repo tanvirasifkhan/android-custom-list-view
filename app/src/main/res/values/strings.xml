@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Custom List View</string>
+    <string name="name_string">Enter name...</string>
+    <string name="profession_string">Enter profession...</string>
 </resources>

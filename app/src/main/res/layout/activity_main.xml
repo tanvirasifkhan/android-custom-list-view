@@ -9,4 +9,9 @@
 
     <include android:id="@+id/toolbar" layout="@layout/custom_toolbar_layout"/>
 
+    <ListView
+        android:id="@+id/custom_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 </LinearLayout>

@@ -7,6 +7,6 @@ Android custom list view with text and image
 ## How to use ?
 
 ```
-https://github.com/tanvirasifkhan/Android-Custom-List-View.git
+git clone https://github.com/tanvirasifkhan/Android-Custom-List-View.git
 
 ```

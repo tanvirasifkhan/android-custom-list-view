@@ -1,7 +1,9 @@
-package com.example.asifkhan.customlistview;
+package com.example.asifkhan.customlistview.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.asifkhan.customlistview.R;
 
 public class MainActivity extends AppCompatActivity {
 

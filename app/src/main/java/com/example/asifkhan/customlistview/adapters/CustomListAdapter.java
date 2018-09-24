@@ -90,4 +90,11 @@ public class CustomListAdapter extends BaseAdapter implements View.OnClickListen
             }
         });
     }
+
+    //file search result
+    public void filterResult(ArrayList<UserInfo> newUserInfos){
+        userInfos=new ArrayList<>();
+        userInfos.addAll(newUserInfos);
+        notifyDataSetChanged();
+    }
 }

@@ -2,7 +2,10 @@ package com.example.asifkhan.customlistview.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -63,5 +66,35 @@ public class MainActivity extends AppCompatActivity {
         for(int count=0;count<names.length;count++){
             userInfos.add(new UserInfo(names[count],professions[count],photos[count]));
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.search_option,menu);
+        MenuItem menuItem=menu.findItem(R.id.search);
+        SearchView searchView=(SearchView)menuItem.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                newText=newText.toString();
+                ArrayList<UserInfo> newUserInfos=new ArrayList<>();
+                for(UserInfo userInfo:userInfos){
+                    String name=userInfo.getName().toLowerCase();
+                    String profession=userInfo.getProfession().toLowerCase();
+                    if(name.contains(newText) || profession.contains(newText)){
+                        newUserInfos.add(userInfo);
+                    }
+                }
+                customListAdapter.filterResult(newUserInfos);
+                customListAdapter.notifyDataSetChanged();
+                return false;
+            }
+        });
+        return super.onCreateOptionsMenu(menu);
     }
 }
